@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Logo from '../../components/Logo';
-import Logo from '../../components/Logo';
 import api from '../../lib/api';
 
 export default function Login() {
