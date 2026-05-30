@@ -133,7 +133,7 @@ export default function BotSettings() {
       )}
 
       {/* Guide */}
-      <div className="card" style={{ borderColor: 'rgba(232,255,71,0.15)' }}>
+      <div className="card" style={{ borderColor: 'rgba(99,102,241,0.15)' }}>
         <div className="card-title">How to create a bot</div>
         <div style={{ fontSize: '14px', color: 'var(--text2)', lineHeight: '2' }}>
           <div>1. Open Telegram and search for <strong style={{ color: 'var(--text)' }}>@BotFather</strong></div>

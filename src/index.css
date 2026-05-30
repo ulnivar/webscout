@@ -1,18 +1,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0a0a0c;
-  --bg2: #111116;
-  --bg3: #18181f;
-  --border: #2a2a35;
-  --border2: #3a3a48;
-  --accent: #e8ff47;
-  --accent2: #b8cc20;
-  --text: #f0f0f5;
-  --text2: #9090a8;
-  --text3: #5a5a72;
-  --red: #ff4d4d;
-  --green: #4dff91;
+  --bg: #0a0a0f;
+  --bg2: #10101a;
+  --bg3: #16162a;
+  --border: #22223a;
+  --border2: #2e2e50;
+  --accent: #6366f1;
+  --accent2: #4f46e5;
+  --accent-glow: rgba(99,102,241,0.15);
+  --text: #eeeef5;
+  --text2: #8888aa;
+  --text3: #50506a;
+  --red: #f87171;
+  --green: #34d399;
   --radius: 10px;
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
@@ -55,7 +56,7 @@ input, textarea, select { font-family: var(--font-body); }
   right: -200px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -66,7 +67,7 @@ input, textarea, select { font-family: var(--font-body); }
   left: -150px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(232,255,71,0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -143,7 +144,7 @@ input, textarea, select { font-family: var(--font-body); }
 
 .form-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(232,255,71,0.08);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.08);
 }
 
 .form-input::placeholder { color: var(--text3); }
@@ -170,7 +171,7 @@ input, textarea, select { font-family: var(--font-body); }
 .btn-primary {
   width: 100%;
   background: var(--accent);
-  color: #0a0a0c;
+  color: #fff;
   border: none;
   border-radius: var(--radius);
   padding: 13px 24px;
@@ -277,16 +278,15 @@ input, textarea, select { font-family: var(--font-body); }
 }
 
 .sidebar-logo {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 0 20px 24px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 16px;
 }
 
-.sidebar-logo span { color: var(--accent); }
+
 
 .sidebar-nav {
   flex: 1;
@@ -309,7 +309,7 @@ input, textarea, select { font-family: var(--font-body); }
 }
 
 .nav-item:hover { background: var(--bg3); color: var(--text); }
-.nav-item.active { background: rgba(232,255,71,0.1); color: var(--accent); }
+.nav-item.active { background: rgba(99,102,241,0.12); color: var(--accent); }
 .nav-item.active svg { color: var(--accent); }
 
 .sidebar-footer {
@@ -333,7 +333,7 @@ input, textarea, select { font-family: var(--font-body); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(232,255,71,0.15);
+  background: rgba(99,102,241,0.15);
   color: var(--accent);
   font-family: var(--font-display);
   font-weight: 700;
@@ -419,7 +419,7 @@ input, textarea, select { font-family: var(--font-body); }
 }
 .badge-green { background: rgba(77,255,145,0.12); color: var(--green); }
 .badge-red { background: rgba(255,77,77,0.12); color: var(--red); }
-.badge-yellow { background: rgba(232,255,71,0.12); color: var(--accent); }
+.badge-yellow { background: rgba(99,102,241,0.12); color: var(--accent); }
 
 .dot {
   width: 6px;
@@ -457,7 +457,7 @@ input, textarea, select { font-family: var(--font-body); }
   border-radius: 50%;
   transition: transform 0.2s, background 0.2s;
 }
-.toggle input:checked + .toggle-slider { background: rgba(232,255,71,0.2); border-color: var(--accent); }
+.toggle input:checked + .toggle-slider { background: rgba(99,102,241,0.2); border-color: var(--accent); }
 .toggle input:checked + .toggle-slider::before { transform: translateX(18px); background: var(--accent); }
 
 /* ── Table ── */
@@ -497,7 +497,7 @@ tr:hover td { background: var(--bg3); }
 .btn:hover { opacity: 0.85; transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-.btn-accent { background: var(--accent); color: #0a0a0c; font-weight: 700; }
+.btn-accent { background: var(--accent); color: #fff; font-weight: 700; }
 .btn-ghost { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
 .btn-danger { background: rgba(255,77,77,0.12); color: var(--red); border: 1px solid rgba(255,77,77,0.2); }
 .btn-sm { padding: 5px 12px; font-size: 13px; }

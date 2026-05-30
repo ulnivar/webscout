@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Logo from '../../components/Logo';
+import Logo from '../../components/Logo';
 import api from '../../lib/api';
 
 export default function Login() {
@@ -31,9 +33,7 @@ export default function Login() {
   return (
     <div className="auth-layout">
       <div className="auth-card">
-        <div className="auth-logo">
-          GC<span>Panel</span>
-        </div>
+        <Logo />
         <h1 className="auth-title">Welcome back</h1>
         <p className="auth-subtitle">Sign in to your account to continue</p>
 

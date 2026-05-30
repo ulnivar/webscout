@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Logo from '../../components/Logo';
 import api from '../../lib/api';
 
 const getStrength = (pass) => {
@@ -15,7 +16,7 @@ const getStrength = (pass) => {
     { label: '', color: '' },
     { label: 'Weak', color: '#ff4d4d' },
     { label: 'Fair', color: '#ffa500' },
-    { label: 'Good', color: '#e8ff47' },
+    { label: 'Good', color: '#6366f1' },
     { label: 'Strong', color: '#4dff91' },
     { label: 'Very Strong', color: '#4dff91' },
   ];
@@ -58,9 +59,7 @@ export default function Register() {
   return (
     <div className="auth-layout">
       <div className="auth-card">
-        <div className="auth-logo">
-          GC<span>Panel</span>
-        </div>
+        <Logo />
         <h1 className="auth-title">Create account</h1>
         <p className="auth-subtitle">Join GC Panel to start receiving job alerts</p>
 

@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import Logo from './Logo';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
@@ -52,12 +53,7 @@ export default function AdminLayout({ children }) {
   return (
     <div className="layout">
       <aside className="sidebar">
-        <div className="sidebar-logo">
-          GC<span>Panel</span>
-          <span style={{ fontSize: '10px', background: 'rgba(232,255,71,0.15)', color: 'var(--accent)', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', fontFamily: 'var(--font-body)', fontWeight: 600 }}>
-            ROOT
-          </span>
-        </div>
+        <div className="sidebar-logo" style={{ display: "flex", alignItems: "center", gap: "8px" }}><Logo size={26} /><span style={{ fontSize: "10px", background: "rgba(99,102,241,0.15)", color: "var(--accent)", padding: "2px 6px", borderRadius: "4px", fontFamily: "var(--font-body)", fontWeight: 600 }}>ROOT</span></div>
         <nav className="sidebar-nav">
           {navItems.map((item) => (
             <NavLink

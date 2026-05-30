@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import Logo from './Logo';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
@@ -61,7 +62,7 @@ export default function UserLayout({ children }) {
   return (
     <div className="layout">
       <aside className="sidebar">
-        <div className="sidebar-logo">GC<span>Panel</span></div>
+        <div className="sidebar-logo"><Logo size={26} /></div>
         <nav className="sidebar-nav">
           {navItems.map((item) => (
             <NavLink

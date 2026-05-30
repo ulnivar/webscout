@@ -56,7 +56,7 @@ export default function Profile() {
       <div className="card" style={{ marginBottom: '20px' }}>
         <div className="card-title">Account Info</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(232,255,71,0.12)', display: 'grid', placeItems: 'center', color: 'var(--accent)', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '20px' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(99,102,241,0.12)', display: 'grid', placeItems: 'center', color: 'var(--accent)', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '20px' }}>
             {user?.email?.[0]?.toUpperCase()}
           </div>
           <div>

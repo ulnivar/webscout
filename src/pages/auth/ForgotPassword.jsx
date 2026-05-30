@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../lib/api';
+import Logo from '../../components/Logo';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -27,9 +28,7 @@ export default function ForgotPassword() {
   return (
     <div className="auth-layout">
       <div className="auth-card">
-        <div className="auth-logo">
-          GC<span>Panel</span>
-        </div>
+        <Logo />
 
         <h1 className="auth-title">Reset password</h1>
         <p className="auth-subtitle">
