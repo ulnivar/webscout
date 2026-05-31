@@ -188,8 +188,8 @@ export default function AuthUnified() {
 
             <button
               type="button"
-              className="btn btn-ghost"
-              style={{ width: '100%', marginTop: '10px' }}
+              className="btn btn-ghost btn-sm"
+              style={{ marginTop: '10px', display: 'inline-flex' }}
               onClick={() => {
                 setStep(1);
                 setPassword('');
