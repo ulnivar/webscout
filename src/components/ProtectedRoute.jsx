@@ -16,6 +16,6 @@ export const RootRoute = ({ children }) => {
 
 export const GuestRoute = ({ children }) => {
   const { user } = useAuth();
-  if (user) return <Navigate to={user.role === 'root' ? '/admin/dashboard' : '/dashboard'} replace />;
+  if (user) return <Navigate to="/dashboard" replace />;
   return children;
 };
