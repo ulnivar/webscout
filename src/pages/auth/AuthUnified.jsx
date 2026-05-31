@@ -75,7 +75,7 @@ export default function AuthUnified() {
           <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: step >= 2 ? 'var(--accent)' : 'var(--border)' }} />
         </div>
 
-        <h1 className="auth-title">{mode === 'signin' ? 'Sign in to WebScout' : 'Create your WebScout account'}</h1>
+        <h1 className="auth-title">Welcome to WebScout</h1>
         <p className="auth-subtitle">
           {step === 1 ? 'Enter your email to continue.' : mode === 'signin' ? 'Enter your password.' : 'Set a password.'}
         </p>
