@@ -69,9 +69,25 @@ export default function AuthUnified() {
       <div className="auth-card">
         <Logo />
 
-        <h1 className="auth-title">{mode === 'signin' ? 'Welcome back' : 'Create your account'}</h1>
+        <div style={{ marginTop: '14px', marginBottom: '14px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '11px', color: 'var(--text2)', border: '1px solid var(--border)', background: 'var(--bg3)', borderRadius: '999px', padding: '4px 10px' }}>Email-first</span>
+          <span style={{ fontSize: '11px', color: 'var(--text2)', border: '1px solid var(--border)', background: 'var(--bg3)', borderRadius: '999px', padding: '4px 10px' }}>Secure sign-in</span>
+          <span style={{ fontSize: '11px', color: 'var(--text2)', border: '1px solid var(--border)', background: 'var(--bg3)', borderRadius: '999px', padding: '4px 10px' }}>No social login</span>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+          <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: step >= 1 ? 'var(--accent)' : 'var(--border)' }} />
+          <div style={{ width: '24px', height: '1px', background: step >= 2 ? 'var(--accent)' : 'var(--border)' }} />
+          <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: step >= 2 ? 'var(--accent)' : 'var(--border)' }} />
+        </div>
+
+        <h1 className="auth-title">{mode === 'signin' ? 'Sign in to WebScout' : 'Create your WebScout account'}</h1>
         <p className="auth-subtitle">
-          {step === 1 ? 'Start with your email' : mode === 'signin' ? 'Enter your password to continue' : 'Set a secure password to continue'}
+          {step === 1
+            ? 'Start with your email. We will route you to login or signup automatically.'
+            : mode === 'signin'
+              ? 'Email found. Enter your password to continue.'
+              : 'No account found. Set a password to finish signup.'}
         </p>
 
         {error && <div className="alert alert-error">{error}</div>}
@@ -110,7 +126,7 @@ export default function AuthUnified() {
             </div>
 
             <button className="btn-primary" type="submit" disabled={loading}>
-              {loading ? 'Checking...' : 'Continue'}
+              {loading ? 'Checking account...' : 'Continue with email'}
             </button>
           </form>
         ) : (
@@ -177,7 +193,7 @@ export default function AuthUnified() {
             )}
 
             <button className="btn-primary" type="submit" disabled={loading}>
-              {loading ? (mode === 'signin' ? 'Signing in...' : 'Creating account...') : (mode === 'signin' ? 'Sign In' : 'Create Account')}
+              {loading ? (mode === 'signin' ? 'Signing you in...' : 'Creating your account...') : (mode === 'signin' ? 'Sign in now' : 'Create account')}
             </button>
 
             <button
