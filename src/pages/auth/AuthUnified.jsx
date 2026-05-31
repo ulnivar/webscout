@@ -69,12 +69,6 @@ export default function AuthUnified() {
       <div className="auth-card">
         <Logo />
 
-        <div style={{ marginTop: '14px', marginBottom: '14px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '11px', color: 'var(--text2)', border: '1px solid var(--border)', background: 'var(--bg3)', borderRadius: '999px', padding: '4px 10px' }}>Email-first</span>
-          <span style={{ fontSize: '11px', color: 'var(--text2)', border: '1px solid var(--border)', background: 'var(--bg3)', borderRadius: '999px', padding: '4px 10px' }}>Secure sign-in</span>
-          <span style={{ fontSize: '11px', color: 'var(--text2)', border: '1px solid var(--border)', background: 'var(--bg3)', borderRadius: '999px', padding: '4px 10px' }}>No social login</span>
-        </div>
-
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
           <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: step >= 1 ? 'var(--accent)' : 'var(--border)' }} />
           <div style={{ width: '24px', height: '1px', background: step >= 2 ? 'var(--accent)' : 'var(--border)' }} />
@@ -83,11 +77,7 @@ export default function AuthUnified() {
 
         <h1 className="auth-title">{mode === 'signin' ? 'Sign in to WebScout' : 'Create your WebScout account'}</h1>
         <p className="auth-subtitle">
-          {step === 1
-            ? 'Start with your email. We will route you to login or signup automatically.'
-            : mode === 'signin'
-              ? 'Email found. Enter your password to continue.'
-              : 'No account found. Set a password to finish signup.'}
+          {step === 1 ? 'Enter your email to continue.' : mode === 'signin' ? 'Enter your password.' : 'Set a password.'}
         </p>
 
         {error && <div className="alert alert-error">{error}</div>}
@@ -126,7 +116,7 @@ export default function AuthUnified() {
             </div>
 
             <button className="btn-primary" type="submit" disabled={loading}>
-              {loading ? 'Checking account...' : 'Continue with email'}
+              {loading ? 'Checking...' : 'Continue'}
             </button>
           </form>
         ) : (
