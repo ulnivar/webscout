@@ -40,15 +40,6 @@ export default function AuthUnified() {
 
   const strength = useMemo(() => getStrength(password), [password]);
 
-  const goMode = (next) => {
-    setMode(next);
-    setStep(1);
-    setPassword('');
-    setConfirm('');
-    setError('');
-    navigate(next === 'signin' ? '/login' : '/register', { replace: true });
-  };
-
   const submitAuth = async (e) => {
     e.preventDefault();
     setError('');
@@ -78,25 +69,6 @@ export default function AuthUnified() {
       <div className="auth-card">
         <Logo />
 
-        <div style={{ display: 'flex', gap: '8px', marginTop: '18px', marginBottom: '18px' }}>
-          <button
-            type="button"
-            className="btn btn-sm"
-            onClick={() => goMode('signin')}
-            style={{ flex: 1, background: mode === 'signin' ? 'var(--accent)' : 'var(--bg3)', color: mode === 'signin' ? '#fff' : 'var(--text2)' }}
-          >
-            Log in
-          </button>
-          <button
-            type="button"
-            className="btn btn-sm"
-            onClick={() => goMode('signup')}
-            style={{ flex: 1, background: mode === 'signup' ? 'var(--accent)' : 'var(--bg3)', color: mode === 'signup' ? '#fff' : 'var(--text2)' }}
-          >
-            Sign up
-          </button>
-        </div>
-
         <h1 className="auth-title">{mode === 'signin' ? 'Welcome back' : 'Create your account'}</h1>
         <p className="auth-subtitle">
           {step === 1 ? 'Start with your email' : mode === 'signin' ? 'Enter your password to continue' : 'Set a secure password to continue'}
@@ -106,24 +78,24 @@ export default function AuthUnified() {
 
         {step === 1 ? (
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               setError('');
               if (!email) return setError('Email is required');
-              setStep(2);
+              setLoading(true);
+              try {
+                const res = await api.post('/auth/check-email', { email });
+                const nextMode = res.data?.exists ? 'signin' : 'signup';
+                setMode(nextMode);
+                navigate(nextMode === 'signin' ? '/login' : '/register', { replace: true });
+                setStep(2);
+              } catch (err) {
+                setError(err.response?.data?.error || 'Could not continue');
+              } finally {
+                setLoading(false);
+              }
             }}
           >
-            <button
-              type="button"
-              className="btn-primary"
-              style={{ marginTop: 0, marginBottom: '14px' }}
-              onClick={() => setError('Google login will be added next')}
-            >
-              Continue with Google
-            </button>
-
-            <div className="divider" style={{ margin: '16px 0' }} />
-
             <div className="form-group">
               <label className="form-label">Email</label>
               <input
@@ -138,7 +110,7 @@ export default function AuthUnified() {
             </div>
 
             <button className="btn-primary" type="submit" disabled={loading}>
-              Continue
+              {loading ? 'Checking...' : 'Continue'}
             </button>
           </form>
         ) : (
